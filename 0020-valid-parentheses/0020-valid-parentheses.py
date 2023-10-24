@@ -1,5 +1,9 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        # return early
+        if len(s) % 2 != 0 or len(s) == 0:
+            return False
+        # lookup close brace
         closing = {
             ')': '(',
             ']': '[',
