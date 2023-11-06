@@ -7,7 +7,7 @@ impl Solution {
             if nums[midpoint] == target {
                 return midpoint as i32; // convert from usize
             } else if target < nums[midpoint] {
-                if midpoint == 0 {
+                if midpoint == 0 { // avoid overflow on usize
                     break;
                 }
                 high = midpoint - 1;
