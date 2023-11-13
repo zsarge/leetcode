@@ -3,8 +3,7 @@ int search(int* nums, int numsSize, int target) {
     int *i = nums;
     int *j = nums + (numsSize-1);
     while (i <= j) {
-        int midpointOffset = (int)(j-i) / 2;
-        int *midpoint = i + midpointOffset;
+        int *midpoint = i + ((int)(j-i) / 2);
         if (*midpoint == target) {
             return (int)(midpoint-nums);
         } else if (*midpoint > target) {
