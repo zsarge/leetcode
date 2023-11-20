@@ -1,13 +1,11 @@
 class Solution:    
     def maxProfit(self, prices: List[int]) -> int:
-        buyIndex = 0 # first day
-        sellIndex = 1 # second day
-        maxProfit = 0
-        while sellIndex < len(prices):
-            if prices[buyIndex] < prices[sellIndex]:
-                profit = prices[sellIndex] - prices[buyIndex]
-                maxProfit = max(profit, maxProfit)
-            else:
-                buyIndex = sellIndex
-            sellIndex += 1
-        return maxProfit
+        max_profit = 0
+        min_price = prices[0]
+        
+        for price in prices:
+            min_price = min(price, min_price) # left sliding window
+            current_profit = price - min_price
+            max_profit = max(max_profit, current_profit) # right (selective) sliding window
+            
+        return max_profit
