@@ -17,6 +17,7 @@ impl Solution {
             char_set.insert(right);
             max_substring = max(max_substring, right_index - left_index + 1);
         }
+
         return max_substring as i32;
     }    
 }
