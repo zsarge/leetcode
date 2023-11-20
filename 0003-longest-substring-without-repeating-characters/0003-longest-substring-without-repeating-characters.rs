@@ -6,10 +6,12 @@ impl Solution {
         let mut char_set = HashSet::new();
         let mut left_index = 0;
         let mut max_substring = 0;
+        let chars: Vec<char> = s.chars().collect(); // use Vec for O(1) lookup
         
-        for (right_index, right) in s.chars().enumerate() {
+        for right_index in 0..s.len() {
+            let right = chars[right_index];
             while char_set.contains(&right) {
-                char_set.remove(&s.chars().nth(left_index).unwrap());
+                char_set.remove(&chars[left_index]);
                 left_index += 1;
             }
             char_set.insert(right);
