@@ -7,6 +7,7 @@
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is not None:
+            # using this syntax is significantly slower:
             # root.left, root.right = root.right, root.left
             temp = root.left
             root.left = root.right
